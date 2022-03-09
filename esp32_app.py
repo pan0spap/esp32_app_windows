@@ -57,7 +57,7 @@ def load_file():
     
 
 def chip_info():
-    out = os.popen('cmd /c "C:\Users\user\Desktop\Release\esp-idf\export.bat && cd C:\Users\user\Desktop\Release\esp-idf\components\esptool_py\esptool && esptool.py read_mac"').read()
+    out = os.popen('cmd /c "C:/Users/user/Desktop/Release/esp-idf/export.bat && cd C:/Users/user/Desktop/Release/esp-idf/components/esptool_py/esptool && esptool.py read_mac"').read()
     
     mac = out.split("MAC: ")[1].split("\n")[0]
     chip = out.split("Chip ")[1].split("\n")[0]
@@ -94,7 +94,7 @@ def chip_info():
 def erase_button(por):
     if available_port == True: 
         tkinter.messagebox.showinfo('Process', 'This may take a while! \n Please wait!')
-        out = os.popen('cmd /c "C:\Users\user\Desktop\Release\esp-idf\export.bat && cd C:\Users\user\Desktop\Release\esp-idf\components\esptool_py\esptool && esptool.py -p{} erase_flash"'.format(por)).read()
+        out = os.popen('cmd /c "C:/Users/user/Desktop/Release/esp-idf/export.bat && cd C:/Users/user/Desktop/Release/esp-idf/components/esptool_py/esptool && esptool.py -p{} erase_flash"'.format(por)).read()
         output = out.split('Chip erase ')[1].split('\n')[0]
         value = 'Chip erase ' + output
         
@@ -111,7 +111,7 @@ def button_write(com):
     if available_port == True:
         if set_boot == True and set_par == True and set_modbus == True:
             tkinter.messagebox.showinfo('Process', 'This may take a while! \n Please wait!')
-            out = os.popen('cmd /c "C:\Users\user\Desktop\Release\esp-idf\export.bat && cd C:\Users\user\Desktop\Release\esp-idf\components\esptool_py\esptool && esptool.py -p{} --chip esp32 -p{}  --baud 2000000 --before default_reset --after no_reset write_flash --flash_size detect 0x1000 {} 0x8000 {} 0x10000 {}"'.format(com, com, path_boot, path_partition, path_modbus)).read()
+            out = os.popen('cmd /c "C:/Users/user/Desktop/Release/esp-idf/export.bat && cd C:/Users/user/Desktop/Release/esp-idf/components/esptool_py/esptool && esptool.py -p{} --chip esp32 -p{}  --baud 2000000 --before default_reset --after no_reset write_flash --flash_size detect 0x1000 {} 0x8000 {} 0x10000 {}"'.format(com, com, path_boot, path_partition, path_modbus)).read()
             o = out.split('Wrote ')[1].split('\n')[0]
             val = 'Wrote ' + o
             if out.find(val):
