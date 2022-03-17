@@ -116,6 +116,8 @@ def button_write(com):
             val = 'Wrote ' + o
             if out.find(val):
                 tkinter.messagebox.showinfo('Complete', val)
+            else:
+                tkinter.messagebox.showerror('Error', 'Something went wrong!')    
         else:
             tkinter.messagebox.showerror('Error', 'You must select all bin files!') 
     else:
@@ -158,8 +160,8 @@ config_menuTab.add_command(label="Load bootloader.bin", command=load_file)
 partable_subTab = Menu(config_menuTab, tearoff=0)
 config_menuTab.add_command(label="Load partition-table.bin", command=load_file)
 
-#sub tab image.bin
-image_subTab = Menu(config_menuTab, tearoff=0)
+#sub tab app.bin
+app_subTab = Menu(config_menuTab, tearoff=0)
 config_menuTab.add_command(label="Load app.bin", command=load_file)
 
 #button erase
